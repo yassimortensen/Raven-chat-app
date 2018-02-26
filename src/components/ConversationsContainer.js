@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ActionCable } from 'react-actioncable-provider';
 import { API_ROOT_PATH } from '../constants';
 
@@ -62,7 +62,7 @@ class ConversationsContainer extends React.Component {
     }
 
     return (
-      <div>
+      <Fragment>
         <ActionCable
           channel={{ channel: 'ConversationsChannel' }}
           onReceived={this.handleNewConversation}
@@ -77,7 +77,7 @@ class ConversationsContainer extends React.Component {
         </ul>
         <h2>Messages</h2>
         {selectedConversation}
-      </div>
+      </Fragment>
     );
   }
 }
