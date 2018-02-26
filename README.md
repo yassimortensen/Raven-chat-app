@@ -1,8 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
 # README
 
 # Welcome to Raven!
@@ -17,6 +12,10 @@ At a minimum, the program allows a user to message another user and outputs a lo
 The Raven API is seeded with default data for existing conversations and users. You can find the Rails API in a separate repo here: https://github.com/yassimortensen/Raven-chat-app-api
 
 This React App was created with the command `create-react-app raven-chat-app`. All components and CSS were created and modified manually by the author.
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 
 ## GETTING STARTED ##
