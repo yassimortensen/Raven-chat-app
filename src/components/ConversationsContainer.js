@@ -4,13 +4,18 @@ import { API_ROOT_PATH } from '../constants';
 
 import NewConversationForm from './NewConversationForm';
 import MessagesContainer from './MessagesContainer';
-import CableArea from './CableArea';
+import Cable from './Cable';
+import Conversation from './Conversation';
 
 class ConversationsContainer extends React.Component {
 
-  state = {
-    conversations: [],
-    selectedConversation: null
+  constructor(){
+    super()
+
+    this.state = {
+      conversations: [],
+      selectedConversation: null
+    }
   }
 
   componentDidMount = () => {
@@ -20,17 +25,18 @@ class ConversationsContainer extends React.Component {
   }
 
   handleNewConversation = (response) => {
+    //receives new conversation from conversation channel
     this.setState({
-      conversations: [...this.state.conversations, response]
+      conversations: [...this.state.conversations, response.conversation]
     })
   }
 
   handleNewMessage = (response) => {
+    //receives new message from message channel
     let foundConversation = this.state.conversations.find(
-      convo => convo.id === response.conversation_id
+      convo => convo.id === response.message.conversation.id
     )
-    foundConversation.messages = [...foundConversation.messages, response]
-    //////this might not work...
+    foundConversation.messages = [...foundConversation.messages, response.message]
     this.setState({
       conversations: [...this.state.conversations]
     })
@@ -43,18 +49,14 @@ class ConversationsContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state)
-
     const listOfConversations = this.state.conversations.map(convo => (
-      <li key={convo.id} onClick={() => this.handleConvoClick(convo)}>
-        {convo.topic}
-      </li>
+      <Conversation key={convo.id} handleConvoClick={this.handleConvoClick} convo={convo} />
     ))
 
     let selectedConversation;
 
     if (this.state.selectedConversation){
-      selectedConversation = <MessagesContainer conversation={selectedConversation}/>
+      selectedConversation = <MessagesContainer currentUser={this.props.currentUser} conversation={this.state.selectedConversation}/>
     } else {
       selectedConversation = <p>Please Choose a Conversation Above</p>
     }
@@ -66,14 +68,15 @@ class ConversationsContainer extends React.Component {
           onReceived={this.handleNewConversation}
         />
         {this.state.conversations.length ? (
-          <CableArea conversations = {this.state.conversations} handleNewMessage={this.handleNewMessage}/>
+          <Cable conversations={this.state.conversations} handleNewMessage={this.handleNewMessage}/>
         ) : null}
         <h2>Conversations</h2>
+        <NewConversationForm />
         <ul className="conversations-list">
           {listOfConversations}
         </ul>
+        <h2>Messages</h2>
         {selectedConversation}
-        <NewConversationForm />
       </div>
     );
   }

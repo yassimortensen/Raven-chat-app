@@ -2,27 +2,21 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.conversations-list {
+  border-style: solid;
+  border-width: 5px;
+  width: 50%;
+  display: inline-block;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+li {
+  list-style: none;
 }
 
-.App-title {
-  font-size: 1.5em;
+.link-hover:hover {
+  color: blue;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+ul {
+  padding: 0;
 }

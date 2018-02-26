@@ -1,12 +1,25 @@
 import React from 'react';
-import { ActionCable } from 'react-actioncable-provider';
-import { API_ROOT_PATH } from '../constants';
+
+import NewMessageForm from './NewMessageForm';
 
 class MessagesContainer extends React.Component {
-  render() {
+
+  render(){
+
+    let orderedMessages = this.props.conversation.messages.sort(
+      (a, b) => new Date(a.created_at) - new Date(b.created_at)
+    )
+    let allMessages = orderedMessages.map(message => (
+      <li key ={message.id}>{message.user.username}: {message.content}</li>
+    ))
+
     return (
-      <div>
-        Hello from Messages Container!
+      <div className='messages-container'>
+        <h2>{this.props.conversation.topic}</h2>
+        <ul>
+          {allMessages}
+        </ul>
+        <NewMessageForm conversation={this.props.conversation} currentUser={this.props.currentUser}/>
       </div>
     );
   }
