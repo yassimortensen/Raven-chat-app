@@ -14,8 +14,9 @@ h2 {
 }
 
 .conversations-list {
-  border-style: solid;
+  border-style: dotted;
   border-width: 5px;
+  border-color: white;
   width: 50%;
   display: inline-block;
 }

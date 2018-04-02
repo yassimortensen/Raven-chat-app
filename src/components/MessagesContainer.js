@@ -19,7 +19,7 @@ class MessagesContainer extends React.Component {
         <ul>
           {allMessages}
         </ul>
-        <NewMessageForm conversation={this.props.conversation} currentUser={this.props.currentUser}/>
+        <NewMessageForm conversation={this.props.conversation} currentUser={this.props.currentUser}/><br />
       </div>
     );
   }
