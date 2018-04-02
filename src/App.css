@@ -14,7 +14,8 @@ li {
 }
 
 .link-hover:hover {
-  color: blue;
+  color: #D619DF;
+  text-decoration: underline;
 }
 
 ul {
