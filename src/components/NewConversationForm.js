@@ -29,7 +29,7 @@ class NewConversationForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>New Conversation:</label><br />
           <input type="text" value={this.state.topic} onChange={this.handleChange} />
-          <input type="submit" />
+          <input type="submit" className="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" style={{marginLeft: '1%'}}/>
         </form>
       </div>
     );

@@ -34,8 +34,9 @@ li {
 }
 
 .link-hover:hover {
-  color: #D619DF;
+  color: white;
   text-decoration: underline;
+  font-size: 1.5rem;
 }
 
 ul {

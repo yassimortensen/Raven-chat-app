@@ -70,7 +70,7 @@ class ConversationsContainer extends React.Component {
         {this.state.conversations.length ? (
           <Cable conversations={this.state.conversations} handleNewMessage={this.handleNewMessage}/>
         ) : null}
-        <h1 className="title">Conversations</h1>
+        <h2 className="title">Conversations</h2>
         <NewConversationForm />
         <ul className="conversations-list">
           {listOfConversations}
