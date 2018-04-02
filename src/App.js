@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 
 import ConversationsContainer from './components/ConversationsContainer'
@@ -38,14 +38,14 @@ class App extends Component {
       loggedIn = <ConversationsContainer currentUser={this.state.currentUser}/>
     } else {
       loggedIn =
-        <div>
+        <Fragment>
           <h2>Please Log In Below</h2>
           <form onSubmit={this.handleSubmit}>
-          <label>Username:</label><br />
-          <input type='text' value={this.state.username} onChange={this.handleChange} />
-          <input type='submit' />
+            <p style={{fontFamily: 'Roboto', margin:'0', fontSize: '1.2rem'}}>Username:</p><br />
+            <input type='text' value={this.state.username} onChange={this.handleChange} />
+            <input type='submit' className="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" style={{marginLeft: '1%'}}/>
           </form>
-        </div>
+        </Fragment>
     }
     return (
       <div className='App'>

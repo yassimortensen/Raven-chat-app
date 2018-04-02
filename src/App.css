@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  background-color: #CCE8EA;
+}
+
+body {
+  background-color: #CCE8EA;
+}
+
+h2 {
+  color: white;
+  font-family: "Indie Flower";
+  font-size: 4rem;
 }
 
 .conversations-list {
@@ -9,8 +20,17 @@
   display: inline-block;
 }
 
+.title{
+  font-family: "Fredericka the Great";
+}
+
 li {
   list-style: none;
+  /* font-family: "Roboto"; */
+}
+
+.link-hover {
+  /* font-family: "Indie Flower"; */
 }
 
 .link-hover:hover {
